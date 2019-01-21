@@ -26,7 +26,6 @@ uci set shadowsocksr.global.global_server='cfg024a8f'
 uci commit shadowsocksr
 /etc/init.d/shadowsocksr restart
 }
-
 cfg=`uci get shadowsocksr.global.global_server`
 if [ "$cfg" == "nil" ] ;then
 	wget --no-check-certificate --timeout=60 -qO /tmp/wy.txt http://freev2.org
@@ -44,7 +43,6 @@ exit 0
 else
 echo 'V2ray has already running'
 fi
-
 wget --no-check-certificate --timeout=60 -qO /tmp/wy.txt http://freev2.org
 if [ "$?" == "0" ]; then
 	luuid=`uci get shadowsocksr.@servers[0].v2uuid`
