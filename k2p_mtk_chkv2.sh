@@ -17,7 +17,7 @@ if [ "$cfg" == "nil" ] ;then
 	uci set shadowsocksr.cfg024a8f.v2alertid=$rAlertid
 	uci set shadowsocksr.cfg024a8f.server_port=$rport
 	uci set shadowsocksr.cfg024a8f.v2uuid=$ruuid
-	uci commit shadowsocksr
+	uci commit
 	uci set shadowsocksr.global.server_index='1'
 	/etc/init.d/shadowsocksr restart
 	echo 'VPN has not found,execute V2ray'
@@ -47,7 +47,7 @@ if [ "$?" == "0" ]; then
 		uci set shadowsocksr.cfg024a8f.v2alertid=$rAlertid
 		uci set shadowsocksr.cfg024a8f.server_port=$rport
 		uci set shadowsocksr.cfg024a8f.v2uuid=$ruuid
-		uci commit shadowsocksr
+		uci commit
 		uci set shadowsocksr.global.server_index='1'
 		/etc/init.d/shadowsocksr restart
 		else
