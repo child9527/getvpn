@@ -3,7 +3,7 @@
 # Copyright (C) 2018 child9527 <child9527@qq.com>
 # This is free script, for help you get free v2ray account to break GFW.
 
-function setv2() {
+setv2( ) {
 uci set shadowsocksr.cfg024a8f='servers'
 uci set shadowsocksr.cfg024a8f.v2type='0'
 uci set shadowsocksr.cfg024a8f.protocol='origin'
