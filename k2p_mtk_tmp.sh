@@ -9,4 +9,4 @@ chmod 755 /root/chkv2.sh
 echo 'download chkv2.sh commplete'
 /bin/sh /root/chkv2.sh
 sed -i 1i\ '5 0,12 * * * /bin/sh /root/chkv2.sh' /etc/crontabs/root
-sed -i 3a\ '/bin/sh /root/chkv2.sh' /etc/rc.local
+sed -i 4i\ '/bin/sh /root/chkv2.sh' /etc/rc.local
