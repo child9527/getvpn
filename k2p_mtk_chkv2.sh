@@ -2,7 +2,6 @@
 # Copyright (C) 2018 autoget-v2ray
 # Copyright (C) 2018 child9527 <child9527@qq.com>
 # This is free script, for help you get free v2ray account to break GFW.
-
 setv2( ) {
 uci set shadowsocksr.cfg024a8f='servers'
 uci set shadowsocksr.cfg024a8f.v2type='0'
@@ -26,7 +25,6 @@ uci commit shadowsocksr
 sleep 3
 /etc/init.d/shadowsocksr restart
 }
-
 cfg=`uci get shadowsocksr.global.global_server`
 if [ "$cfg" == "nil" ] ;then
 	wget --no-check-certificate --timeout=60 -qO /tmp/wy.txt http://freev2.org
@@ -44,7 +42,6 @@ exit 0
 else
 echo 'V2ray has already running'
 fi
-
 wget --no-check-certificate --timeout=60 -qO /tmp/wy.txt http://freev2.org
 if [ "$?" == "0" ]; then
 	luuid=`uci get shadowsocksr.@servers[0].v2uuid`
