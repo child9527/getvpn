@@ -3,7 +3,7 @@
 # Copyright (C) 2018 child9527 <child9527@qq.com>
 # This is free script, for help you get free v2ray account to break GFW.
 cfg=`uci get shadowsocksr.global.global_server`
-if [ "$cfg" == "nil" ] ;then
+if [ "$cfg" == "nil" ]; then
 	wget --no-check-certificate --timeout=60 -qO /tmp/wy.txt http://freev2.org
 	if [ "$?" == "0" ]; then
 	rip=`cat /tmp/wy.txt | grep Address |sed s/[[:space:]]//g | cut -d'=' -f2 | cut -d'>' -f2 | cut -d'<' -f1`
