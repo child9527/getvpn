@@ -11,8 +11,8 @@ if [ "$cfg" == "nil" ] ;then
 	rport=`cat /tmp/wy.txt | grep '"port"'| sed s/[[:space:]]//g | cut -d'=' -f2 | cut -d'>' -f2`
 	ruuid=`cat /tmp/wy.txt | grep UUID | cut -d'=' -f2 | cut -d'>' -f2`
 	rAlertid=`cat /tmp/wy.txt | grep AlterID |sed s/[[:space:]]//g | cut -d':' -f2 | cut -d'<' -f1`
-	uci set shadowsocksr.cfg024a8f.type='2'
 	uci set shadowsocksr.global.global_server='cfg024a8f'
+	uci set shadowsocksr.cfg024a8f.type='2'
 	uci set shadowsocksr.cfg024a8f.server=$rip
 	uci set shadowsocksr.cfg024a8f.v2alertid=$rAlertid
 	uci set shadowsocksr.cfg024a8f.server_port=$rport
@@ -41,8 +41,8 @@ if [ "$?" == "0" ]; then
 	rAlertid=`cat /tmp/wy.txt | grep AlterID |sed s/[[:space:]]//g | cut -d':' -f2 | cut -d'<' -f1`
 		if [[ "$luuid" != "$ruuid" ]] || [[ "$lip" != "$rip" ]] || [[ "$lport" != "$rport" ]] || [[ "$lAlertid" != "$rAlertid" ]]; then
 		echo 'config changed,execute reconfig V2ray'
-		uci set shadowsocksr.cfg024a8f.type='2'
 		uci set shadowsocksr.global.global_server='cfg024a8f'
+		uci set shadowsocksr.cfg024a8f.type='2'
 		uci set shadowsocksr.cfg024a8f.server=$rip
 		uci set shadowsocksr.cfg024a8f.v2alertid=$rAlertid
 		uci set shadowsocksr.cfg024a8f.server_port=$rport
