@@ -3,7 +3,7 @@
 # Copyright (C) 2018 child9527 <child9527@qq.com>
 # This is free script, for help you get free v2ray account to break GFW.
 
-setv2() {
+setv2( ) {
 uci set shadowsocksr.cfg024a8f='servers'
 uci set shadowsocksr.cfg024a8f.v2type='0'
 uci set shadowsocksr.cfg024a8f.protocol='origin'
@@ -14,17 +14,19 @@ uci set shadowsocksr.cfg024a8f.v2level='0'
 uci set shadowsocksr.cfg024a8f.encrypt_method='rc4-md5'
 uci set shadowsocksr.cfg024a8f.ssencrypt='rc4-md5'
 uci set shadowsocksr.cfg024a8f.alias='freev2.org'
-uci set shadowsocksr.cfg024a8f.server=$1
-uci set shadowsocksr.cfg024a8f.v2alertid=$4
-uci set shadowsocksr.cfg024a8f.type='2'
 uci set shadowsocksr.cfg024a8f.v2encrypt='none'
-uci set shadowsocksr.cfg024a8f.server_port=$2
-uci set shadowsocksr.cfg024a8f.v2uuid=$3
+uci set shadowsocksr.cfg024a8f.type='2'
 uci set shadowsocksr.global.server_index='1'
 uci set shadowsocksr.global.global_server='cfg024a8f'
+uci set shadowsocksr.cfg024a8f.server=$1
+uci set shadowsocksr.cfg024a8f.v2alertid=$4
+uci set shadowsocksr.cfg024a8f.server_port=$2
+uci set shadowsocksr.cfg024a8f.v2uuid=$3
 uci commit shadowsocksr
+sleep 3
 /etc/init.d/shadowsocksr restart
 }
+
 cfg=`uci get shadowsocksr.global.global_server`
 if [ "$cfg" == "nil" ] ;then
 	wget --no-check-certificate --timeout=60 -qO /tmp/wy.txt http://freev2.org
@@ -42,6 +44,7 @@ exit 0
 else
 echo 'V2ray has already running'
 fi
+
 wget --no-check-certificate --timeout=60 -qO /tmp/wy.txt http://freev2.org
 if [ "$?" == "0" ]; then
 	luuid=`uci get shadowsocksr.@servers[0].v2uuid`
