@@ -35,7 +35,7 @@ if [ "$cfg" == "nil" ] ;then
 	rport=`cat /tmp/wy.txt | grep '"port"'| sed s/[[:space:]]//g | cut -d'=' -f2 | cut -d'>' -f2`
 	ruuid=`cat /tmp/wy.txt | grep UUID | cut -d'=' -f2 | cut -d'>' -f2`
 	rAlertid=`cat /tmp/wy.txt | grep AlterID |sed s/[[:space:]]//g | cut -d':' -f2 | cut -d'<' -f1`
-	setv2 $rip $rport $ruuid $rAlertid
+	setv2 $rip $rport $ruuid $rAlertid 2>/dev/null
 	echo 'VPN has not found,execute V2ray'
 	exit 0
 	fi
@@ -57,7 +57,7 @@ if [ "$?" == "0" ]; then
 	rAlertid=`cat /tmp/wy.txt | grep AlterID |sed s/[[:space:]]//g | cut -d':' -f2 | cut -d'<' -f1`
 		if [[ "$luuid" != "$ruuid" ]] || [[ "$lip" != "$rip" ]] || [[ "$lport" != "$rport" ]] || [[ "$lAlertid" != "$rAlertid" ]]; then
 		echo 'config changed,execute reconfig V2ray'
-		setv2 $rip $rport $ruuid $rAlertid
+		setv2 $rip $rport $ruuid $rAlertid 2>/dev/null
 		else
 		echo 'config has not change'
 		fi
