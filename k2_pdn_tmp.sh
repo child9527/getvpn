@@ -1,4 +1,5 @@
 #!/bin/sh
+sleep 30
 wget --no-check-certificate --timeout=60 -qO /etc/storage/chkss.sh https://raw.githubusercontent.com/child9527/getvpn/master/k2_pdn_chkss.sh
 chmod 777 /etc/storage/chkss.sh
 /bin/sh /etc/storage/chkss.sh
