@@ -1,7 +1,7 @@
 #!/bin/sh
 sleep 30
 echo 'waiting for 30 sec over'
-wget --no-check-certificate --timeout=60 -qO /etc/storage/chkss.sh https://raw.githubusercontent.com/child9527/getvpn/master/k2_pdn_chkss.sh
+wget --no-check-certificate --timeout=180 -qO /etc/storage/chkss.sh https://raw.githubusercontent.com/child9527/getvpn/master/k2_pdn_chkss.sh
 echo 'download succeeded'
 chmod 777 /etc/storage/chkss.sh
 echo 'chmod ok'
