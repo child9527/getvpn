@@ -7,5 +7,5 @@
 wget --no-check-certificate --timeout=60 -qO /root/chkv2.sh https://raw.githubusercontent.com/child9527/getvpn/master/k2p_mtk_chkv2.sh
 chmod 777 /root/chkv2.sh
 nohup /bin/sh /root/chkv2.sh >/dev/null 2>&1 &
-sed -i 2i\ '5 0,12 * * * /bin/sh /root/chkv2.sh 2>/dev/null' >/etc/crontabs/root
+sed -i 2i\ '5 0,12 * * * /bin/sh /root/chkv2.sh 2>/dev/null' /etc/crontabs/root
 sed -i 3a\ 'nohup /bin/sh /root/chkv2.sh >/dev/null 2>&1 &' /etc/rc.local
