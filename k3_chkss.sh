@@ -17,7 +17,7 @@ ssr_index=`nvram get ssr_index`
 		pwtmp=`cat /tmp/isd.txt | grep '"pwsgc"'| cut -d':' -f2 | cut -d'>' -f2`
 		pwsgc=`echo -n $pwtmp | base64`
 		ssrcfg=`echo '{"name":"c2dj","ip":"'$ipsgc'","type":"1","port":"'$portsgc'","encrypt":"rc4-md5","ssencrypt":"aes-256-cfb","v2encrypt":"auto","v2uuid":"1-2-3-4-5","v2alertid":"0","v2level":"0","v2type":"0","timeout":"60","password":"'$pwsgc'","obfs":"plain","protocol":"origin","obfspara":"","propara":""}'`
-		/bin/sh /root/set_ssr.sh 0 1 0 1 $ssrcfg
+		/bin/sh /root/set_ssr.sh 1 1 0 1 $ssrcfg
 	else
 		echo 'everything is ok'
 	fi
