@@ -4,3 +4,5 @@
 <br>wget --no-check-certificate --timeout=60 -qO- https://dwz.cn/TFO6DaAm | sh</br>
 <br>k2_pdn前缀为k2 padavan固件使用。</br>
 <br>wget --no-check-certificate --timeout=60 -qO- https://dwz.cn/LjnQC48j | sh</br>
+<br>k3官改</br>
+<br>wget --no-check-certificate --timeout=60 -qO- https://dwz.cn/iORrL2nQ | sh</br>
