@@ -1,8 +1,8 @@
 #!/bin/sh
 wget --no-check-certificate --timeout=60 --user-agent="Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0)" -qO /tmp/isd.txt https://c.ishadowx.net/
 if [ "$?" == "0" ]; then
-lport=`cat /tmp/isd.txt | grep '"portsga"'| cut -d':' -f2 | cut -d'>' -f2`
-rport=`nvram get kcp_lport`
+rport=`cat /tmp/isd.txt | grep '"portsga"'| cut -d':' -f2 | cut -d'>' -f2`
+lport=`awk '{print substr($0,52,5)}' /tmp/media/data/ssr.conf | cut -d'"' -f1`
 	if [ "$lport" != "$rport" ]; then
 	echo '参数不匹配，执行更新设置'
 	portsga=`cat /tmp/isd.txt | grep '"portsga"'| cut -d':' -f2 | cut -d'>' -f2`
