@@ -9,7 +9,7 @@ chmod 755 /tmp/chkv2.sh
 if [ -z "`grep 'chkv2.sh' /var/spool/cron/crontabs/admin`" ]; then
 echo 'start set crontabs'
 killall crond
-echo '17 */3 * * * /bin/sh /tmp/chkv2.sh 2>/dev/null' >>/tmp/var/spool/cron/crontabs/admin
+echo '5 0,12 * * * /bin/sh /tmp/chkv2.sh 2>/dev/null' >>/tmp/var/spool/cron/crontabs/admin
 sleep 2
 crond
 fi
