@@ -5,7 +5,7 @@ nvram set ss_enable=0
 nvram commit
 sleep 5
 nohup /bin/sh /etc/storage/script/sh_emi.sh >/dev/null 2>&1 &
-sleep 90
+sleep 60
 nvram set ss_server=$1
 nvram set ss_server_port=$2
 nvram set ss_key=$3
@@ -24,7 +24,7 @@ nohup /bin/sh /etc/storage/script/sh_emi.sh >/dev/null 2>&1 &
 }
 net=`nvram get ss_internet`
 if [ "$net" != "1" ]; then
-	wget --no-check-certificate --timeout=60 --user-agent="Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0)" -qO /tmp/isd.txt https://c.ishadowx.net/
+	wget --no-check-certificate --timeout=60 --user-agent="Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0)" -qO /tmp/isd.txt http://isx.yt/
 	if [ "$?" == "0" ]; then
 	echo 'lost ss status,update...'
 	portsgc=`cat /tmp/isd.txt | grep '"portsgc"'| cut -d':' -f2 | cut -d'>' -f2`
@@ -34,6 +34,7 @@ if [ "$net" != "1" ]; then
 	ipsga=`cat /tmp/isd.txt | grep '"ipsga"' | awk '{print substr($0,49,10)}'`
 	pwsga=`cat /tmp/isd.txt | grep '"pwsga"'| cut -d':' -f2 | cut -d'>' -f2`
 	setss $ipsgc $portsgc $pwsgc $ipsga $portsga $pwsga
+	echo `date` >>/tmp/tmp.txt
 	else
 	echo 'download failed,please try again.'
 	fi
