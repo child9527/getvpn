@@ -1,5 +1,5 @@
 #!/bin/sh
-wget --no-check-certificate --timeout=60 --user-agent="Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0)" -qO /tmp/isd.txt https://c.ishadowx.net/
+wget --no-check-certificate --timeout=60 --user-agent="Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0)" -qO /tmp/isd.txt http://isx.yt/
 if [ "$?" == "0" ]; then
 lport=`awk '{print substr($0,53,5)}' /tmp/media/nand/ssr_new.conf | cut -d'"' -f1`
 rport=`cat /tmp/isd.txt | grep '"portsgc"'| cut -d':' -f2 | cut -d'>' -f2`
