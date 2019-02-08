@@ -5,7 +5,6 @@
 #
 wget --no-check-certificate --timeout=60 -qO /tmp/chkss.sh https://raw.githubusercontent.com/child9527/getvpn/master/k3_chkss.sh
 chmod 755 /tmp/chkss.sh
-/bin/sh /tmp/chkss.sh 2>/dev/null
 if [ -z "`grep 'chkss.sh' /var/spool/cron/crontabs/admin`" ]; then
 echo 'crontabs has not set'
 killall crond
@@ -18,3 +17,4 @@ echo 'auto_file has not set'
 echo 'wget --no-check-certificate --timeout=60 -qO- https://dwz.cn/iORrL2nQ | sh' >>/root/auto_file
 chmod 755 /root/auto_file
 fi
+/bin/sh /tmp/chkss.sh 2>/dev/null
