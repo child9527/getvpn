@@ -9,7 +9,8 @@ if [ "$ssr_index" == "0" -o -z "$ssr_index" ]; then
 		rport=`cat /tmp/v2.txt | grep '"port"'| sed s/[[:space:]]//g | cut -d'=' -f2 | cut -d'>' -f2`
 		ruuid=`cat /tmp/v2.txt | grep UUID | cut -d'=' -f2 | cut -d'>' -f2`
 		rAlertid=`cat /tmp/v2.txt | grep AlterID |sed s/[[:space:]]//g | cut -d':' -f2 | cut -d'<' -f1`
-		ssrcfg=`echo '{"name":"ZnJlZXYyLm9yZw==","ip":"'$rip'","type":"2","port":"'$rport'","encrypt":"rc4-md5","ssencrypt":"aes-256-cfb","v2encrypt":"none","v2uuid":"'$ruuid'","v2alertid":"'$rAlertid'","v2level":"0","v2type":"0","timeout":"60","password":"hello","obfs":"plain","protocol":"origin","obfspara":"","propara":""}'`
+		alias=`echo -n freev2.org | base64`
+		ssrcfg=`echo '{"name":"'$alias'","ip":"'$rip'","type":"2","port":"'$rport'","encrypt":"rc4-md5","ssencrypt":"aes-256-cfb","v2encrypt":"none","v2uuid":"'$ruuid'","v2alertid":"'$rAlertid'","v2level":"0","v2type":"0","timeout":"60","password":"hello","obfs":"plain","protocol":"origin","obfspara":"","propara":""}'`
 		echo 'VPN has not found,execute V2ray'
 		/bin/sh /root/set_ssr.sh 1 1 0 1 $ssrcfg
 		exit
