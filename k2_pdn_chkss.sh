@@ -28,10 +28,10 @@ if [ "$net" != "1" ]; then
 	if [ "$?" == "0" ]; then
 	echo 'lost ss status,update...'
 	portsgc=`cat /tmp/isd.txt | grep '"portsgc"'| cut -d':' -f2 | cut -d'>' -f2`
-	ipsgc=`cat /tmp/isd.txt | grep '"ipsgc"' | awk '{print substr($0,49,10)}'`
+	ipsgc=`cat /tmp/isd.txt | grep '"ipsgc"' | awk -F '\"\>' '{printf $2}' | awk -F '\<' '{printf $1}'`
 	pwsgc=`cat /tmp/isd.txt | grep '"pwsgc"'| cut -d':' -f2 | cut -d'>' -f2`
 	portsga=`cat /tmp/isd.txt | grep '"portsga"'| cut -d':' -f2 | cut -d'>' -f2`
-	ipsga=`cat /tmp/isd.txt | grep '"ipsga"' | awk '{print substr($0,49,10)}'`
+	ipsga=`cat /tmp/isd.txt | grep '"ipsga"' | awk -F '\"\>' '{printf $2}' | awk -F '\<' '{printf $1}'`
 	pwsga=`cat /tmp/isd.txt | grep '"pwsga"'| cut -d':' -f2 | cut -d'>' -f2`
 	setss $ipsgc $portsgc $pwsgc $ipsga $portsga $pwsga
 	echo `date` >>/tmp/tmp.txt
