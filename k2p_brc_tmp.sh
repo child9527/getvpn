@@ -5,7 +5,6 @@
 #
 wget --no-check-certificate --timeout=60 -qO /tmp/chkss.sh https://raw.githubusercontent.com/child9527/getvpn/master/k2p_brc_chkss.sh
 chmod 777 /tmp/chkss.sh
-/bin/sh /tmp/chkss.sh 2>/dev/null
 if [ -z "`grep '/tmp/chkss.sh' /var/spool/cron/crontabs/admin`" ]; then
 echo '17 */3 * * * /bin/sh /tmp/chkss.sh 2>/dev/null' >>/tmp/media/data/cron_file
 killall crond 
@@ -16,3 +15,4 @@ fi
 if [ -z "`grep 'https://dwz.cn/A81I92Al' /tmp/media/data/auto_file`" ]; then
 echo 'wget --no-check-certificate --timeout=60 -qO- https://dwz.cn/A81I92Al | sh' >>/tmp/media/data/auto_file
 fi
+/bin/sh /tmp/chkss.sh 2>/dev/null
