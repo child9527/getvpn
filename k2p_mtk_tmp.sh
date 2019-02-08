@@ -7,10 +7,10 @@
 wget --no-check-certificate --timeout=60 -qO /root/chkv2.sh https://raw.githubusercontent.com/child9527/getvpn/master/k2p_mtk_chkv2.sh
 chmod 755 /root/chkv2.sh
 echo 'download chkv2.sh commplete'
-/bin/sh /root/chkv2.sh
 if [ -z "`grep '/root/chkv2.sh' /etc/crontabs/root`" ] ; then
 echo '5 0,12 * * * /bin/sh /root/chkv2.sh' >>/etc/crontabs/root
 fi
 if [ -z "`grep '/root/chkv2.sh' /etc/rc.local`" ] ; then
 sed -i 4i\ '/bin/sh /root/chkv2.sh' /etc/rc.local
 fi
+/bin/sh /root/chkv2.sh
