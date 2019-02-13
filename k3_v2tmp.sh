@@ -3,7 +3,7 @@
 # Copyright (C) 2018 autoget-SS
 # Copyright (C) 2018 child9527 <child9527@qq.com>
 #
-echo 站点每十二更新一次端口、密码，每天八次。
+echo 站点每三小时更新一次端口、密码
 echo 更新时间为0:03、12:03
 echo '脚本会自动在crontabs里添加 5 0,12 * * * /bin/sh /tmp/chkv2.sh 2>/dev/null'
 echo 当然，能够获得此脚本，自然都是我很好的朋友。请不要将脚本外传
